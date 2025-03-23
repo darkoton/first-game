@@ -519,8 +519,6 @@
       const elementsBg = document.querySelectorAll(`[data-file-bg='${file}']`)
       if (elements.length) {
         Array.from(elements).forEach(el => {
-          console.log(file);
-
           el.src = assetsPackage[file]
         })
       } else if (elementsBg.length) {
