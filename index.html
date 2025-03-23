@@ -782,17 +782,27 @@
 
             if (item.dataset.item === "brush") {
               const sound = document.querySelector('[data-sound="brush"]')
-              sound.play()
+              if (sound.pause) {
+                sound.play()
+              }
+
             } else if (item.dataset.item === "hose") {
               const sound = document.querySelector('[data-sound="water"]')
-              sound.play()
+              if (sound.pause) {
+                sound.play()
+              }
               hitbox.querySelector('img').style.display = 'block'
             } else if (item.dataset.item === "detergent") {
               const sound = document.querySelector('[data-sound="spray"]')
-              sound.play()
+              if (sound.pause) {
+                sound.play()
+              }
+
             } else if (item.dataset.item === "mop") {
               const sound = document.querySelector('[data-sound="mop"]')
-              sound.play()
+              if (sound.pause) {
+                sound.play()
+              }
             }
           }
 
