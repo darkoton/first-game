@@ -538,6 +538,10 @@
     })
   </script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"
+    integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <script>
     const popup = document.getElementById('popup')
     const buttonDownload = popup.querySelector('button')
@@ -641,7 +645,7 @@
       const main = level.querySelector('.main')
       const items = level.querySelectorAll('.tools > .tool')
       const hand = level.querySelector('.hand')
-      let gameIsEnd = false
+      let gameIsEnd = false, toggleAudio = false
 
       const tools = {
         brush: level.querySelector('.brush'),
@@ -722,7 +726,6 @@
               if (level.querySelector('.blob').style.opacity < 0.6) {
 
                 level.querySelector('.blob').style.opacity = +level.querySelector('.blob').style.opacity + 0.003
-
               }
 
             } else if (item.dataset.item === 'detergent' && isIntersecting(hitbox, canvas)) {
@@ -780,26 +783,67 @@
 
             if (item.dataset.item === "brush") {
               const sound = document.querySelector('[data-sound="brush"]')
-              if (sound.pause) {
-                sound.play()
+              if (!toggleAudio) {
+                toggleAudio = true
+
+                const audio = new Howl({
+                  src: [sound.src],
+                  volume: 0.1,
+                });
+                audio.play();
+
+                setTimeout(() => {
+                  toggleAudio = false
+                }, sound.duration * 1000);
               }
+
 
             } else if (item.dataset.item === "hose") {
               const sound = document.querySelector('[data-sound="water"]')
-              if (sound.pause) {
-                sound.play()
+              if (!toggleAudio) {
+                toggleAudio = true
+
+                const audio = new Howl({
+                  src: [sound.src],
+                  volume: 0.1,
+                });
+                audio.play();
+
+                setTimeout(() => {
+                  toggleAudio = false
+                }, sound.duration * 1000);
               }
               hitbox.querySelector('img').style.display = 'block'
             } else if (item.dataset.item === "detergent") {
               const sound = document.querySelector('[data-sound="spray"]')
-              if (sound.pause) {
-                sound.play()
+              if (!toggleAudio) {
+                toggleAudio = true
+
+                const audio = new Howl({
+                  src: [sound.src],
+                  volume: 0.1,
+                });
+                audio.play();
+
+                setTimeout(() => {
+                  toggleAudio = false
+                }, sound.duration * 1000);
               }
 
             } else if (item.dataset.item === "mop") {
               const sound = document.querySelector('[data-sound="mop"]')
-              if (sound.pause) {
-                sound.play()
+              if (!toggleAudio) {
+                toggleAudio = true
+
+                const audio = new Howl({
+                  src: [sound.src],
+                  volume: 0.1,
+                });
+                audio.play();
+
+                setTimeout(() => {
+                  toggleAudio = false
+                }, sound.duration * 1000);
               }
             }
           }
