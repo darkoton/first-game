@@ -794,9 +794,8 @@
 
                 setTimeout(() => {
                   toggleAudio = false
-                }, sound.duration * 1000);
+                }, 250);
               }
-
 
             } else if (item.dataset.item === "hose") {
               const sound = document.querySelector('[data-sound="water"]')
@@ -811,7 +810,7 @@
 
                 setTimeout(() => {
                   toggleAudio = false
-                }, sound.duration * 1000);
+                }, 250);
               }
               hitbox.querySelector('img').style.display = 'block'
             } else if (item.dataset.item === "detergent") {
@@ -827,7 +826,7 @@
 
                 setTimeout(() => {
                   toggleAudio = false
-                }, sound.duration * 1000);
+                }, 250);
               }
 
             } else if (item.dataset.item === "mop") {
@@ -843,7 +842,7 @@
 
                 setTimeout(() => {
                   toggleAudio = false
-                }, sound.duration * 1000);
+                }, 250);
               }
             }
           }
